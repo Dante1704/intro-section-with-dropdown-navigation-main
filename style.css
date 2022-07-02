@@ -1,0 +1,251 @@
+:root {
+    --clr-white: 0 0% 98%;
+    --clr-gray: 0 0% 41%;
+    --clr-black: 0 0% 8%;
+
+    --ff-normal: 'Epilogue', sans-serif;
+
+    --fs-900: 2rem;
+    --fs-600: 1.250rem;
+    --fs-500: 1.125rem;
+    --fs-400: 1rem;
+    --fs-300: 0.875rem;
+
+    --gap-default: 1rem;
+}
+
+
+
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+    margin: 0;
+}
+
+button {
+    font: inherit;
+    color: transparent;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    margin: 0;
+}
+
+li {
+    list-style: none;
+}
+
+.clr-gray {
+    color: hsl(var(--clr-gray));
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-default);
+}
+
+li a:hover,
+li a:focus {
+    color: hsl(var(--clr-black));
+    font-weight: 700;
+}
+
+/* -----------------*/
+/* ------ body------*/
+/* -----------------*/
+
+
+body {
+    font-family: var(--ff-normal);
+    font-size: var(--fs-500);
+    line-height: 1.5;
+    min-height: 100vh;
+}
+
+.cover-page {
+    inset: 0% 0% 0% 0%;
+    background-color: transparent;
+    position: fixed;
+    transition: background-color 1s ease-out;
+}
+
+/* ------ mobile-darked cover page ------ */
+.cover-page-darked {
+    background-color: hsl(var(--clr-black)/ 0.7);
+}
+
+header {
+    margin-top: 1rem;
+}
+
+header>img {
+    margin-left: 1rem;
+}
+
+.mobile-nav-toggle {
+    position: absolute;
+    width: 2.5rem;
+    right: 1rem;
+    top: 1rem;
+    z-index: 1000;
+    background: transparent;
+    background-image: url(./images/icon-menu.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    border: 0;
+}
+
+/* ------ mobile-nav-close icon ------ */
+.mobile-nav-close {
+    background-image: url(./images/icon-close-menu.svg);
+}
+
+.primary-nav {
+    position: fixed;
+    padding-top: 4rem;
+    inset: 0 0 0 35%;
+    flex-direction: column;
+    gap: var(--gap-default);
+    background-color: hsl(var(--clr-white));
+    font-size: var(--fs-400);
+    transform: translateX(100%);
+    transition: transform 1s ease-in-out;
+}
+
+/* ------ primary-nav-visible------*/
+.primary-nav-visible {
+    transform: translateX(0%);
+}
+
+.primary-nav>li:nth-child(1)::before,
+.primary-nav>li:nth-child(2)::before {
+    content: url(./images/icon-arrow-down.svg);
+    display: block;
+    position: relative;
+    left: 5rem;
+    top: 1rem;
+}
+
+/* ------ secondary-nav-arrow-expanded icon------*/
+.primary-nav-expanded::before {
+    content: url(./images/icon-arrow-up.svg);
+}
+
+.primary-nav>li:nth-child(5),
+.primary-nav>li:nth-child(6) {
+    margin: .5rem auto;
+    font-size: var(--fs-300);
+}
+
+.primary-nav>li:nth-child(5)>a,
+.primary-nav>li:nth-child(6)>a {
+    --gap-default: 5rem;
+    padding-inline: var(--gap-default);
+    padding-block: calc(var(--gap-default)/6);
+
+}
+
+.primary-nav>li:nth-child(5)>a:hover,
+.primary-nav>li:nth-child(6)>a:hover,
+.primary-nav>li:nth-child(5)>a:focus,
+.primary-nav>li:nth-child(6)>a:focus {
+    border: 0.15rem solid var(--clr-black);
+    border-radius: 5%;
+}
+
+.secondary-nav {
+    display: none;
+    margin-top: var(--gap-default);
+}
+
+/* ------ secondary-nav-expanded ------*/
+.secondary-nav-expanded {
+    /* to remove display:none of .secondary-nav */
+}
+
+
+.hero-img {
+    max-width: 500px;
+    aspect-ratio: 1;
+    margin: 0 auto;
+    background-image: url(./images/image-hero-mobile.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center center;
+}
+
+.text-content {
+    margin-top: var(--gap-default);
+}
+
+.description>* {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.description>h1 {
+    font-size: var(--fs-900);
+}
+
+.description>p {
+    font-size: var(--fs-400);
+    padding-inline: 1.5em;
+}
+
+.description>a {
+    display: block;
+    border-radius: 1em;
+    margin-inline: 5em;
+    margin-block: 1em;
+    padding-block: 0.75em;
+    color: hsl(var(--clr-white));
+    background-color: hsl(var(--clr-black));
+}
+
+
+@media (min-width: 560px) {
+    .hero-img {
+        width: 50%;
+        background-image: url(./images/image-hero-desktop.png);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+    text-decoration: none;
+}
