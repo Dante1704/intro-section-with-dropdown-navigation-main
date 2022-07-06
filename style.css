@@ -123,7 +123,8 @@ header>img {
 
 .primary-nav {
     position: fixed;
-    padding-top: 4rem;
+    padding-top: 6rem;
+    padding-left: 1.5rem;
     inset: 0 0 0 35%;
     flex-direction: column;
     gap: var(--gap-default);
@@ -138,19 +139,11 @@ header>img {
     transform: translateX(0%);
 }
 
-.primary-nav>li:nth-child(1)::before,
-.primary-nav>li:nth-child(2)::before {
-    content: url(./images/icon-arrow-down.svg);
-    display: block;
-    position: relative;
-    left: 5rem;
-    top: 1rem;
+.arrow {
+    margin-left: 0.5rem;
+    margin-bottom: 0.125rem;
 }
 
-/* ------ secondary-nav-arrow-expanded icon------*/
-.primary-nav-expanded::before {
-    content: url(./images/icon-arrow-up.svg);
-}
 
 .primary-nav>li:nth-child(5),
 .primary-nav>li:nth-child(6) {
@@ -170,25 +163,24 @@ header>img {
 .primary-nav>li:nth-child(6)>a:hover,
 .primary-nav>li:nth-child(5)>a:focus,
 .primary-nav>li:nth-child(6)>a:focus {
-    border: 0.15rem solid var(--clr-black);
-    border-radius: 5%;
+    border: 2px solid black;
+    border-radius: 1em;
 }
 
-.secondary-nav {
-    display: none;
+.secondary-nav-1,
+.secondary-nav-2 {
     margin-top: var(--gap-default);
 }
 
 /* ------ secondary-nav-expanded ------*/
-.secondary-nav-expanded {
-    /* to remove display:none of .secondary-nav */
+.toggle-secondary-nav {
+    display: none;
 }
-
 
 .hero-img {
     max-width: 500px;
-    aspect-ratio: 1;
-    margin: 0 auto;
+    aspect-ratio: 2/1.5;
+    margin: 1em auto;
     background-image: url(./images/image-hero-mobile.png);
     background-repeat: no-repeat;
     background-size: 100%;
@@ -196,6 +188,7 @@ header>img {
 }
 
 .text-content {
+    --gap-default: 3rem;
     margin-top: var(--gap-default);
 }
 
@@ -209,8 +202,9 @@ header>img {
 }
 
 .description>p {
-    font-size: var(--fs-400);
-    padding-inline: 1.5em;
+    font-size: clamp(0.5rem, 3.5vw + 0.1rem, 1.5rem);
+    margin-block: 1.25rem;
+    margin-inline: 2em;
 }
 
 .btn-learn-more {
@@ -234,6 +228,7 @@ header>img {
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
+    margin-top: 1rem;
 }
 
 .sponsors>* {
@@ -253,8 +248,9 @@ header>img {
 }
 
 .attribution {
+    --fs-300: 0.625rem;
     margin-top: var(--gap-default);
-    font-size: 11px;
+    font-size: var(--fs-300);
     text-align: center;
 }
 
