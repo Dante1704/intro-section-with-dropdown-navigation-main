@@ -23,32 +23,35 @@
 
       <ul class="flex primary-nav">
 
-        <li><a class="clr-gray features" href="#">Features <img src="./images/icon-arrow-down.svg" class="arrow-1"></a>
+        <div class="list-items flex-col">
+          <li>
+            <a class="clr-gray features" href="#">Features <img src="./images/icon-arrow-down.svg" class="arrow-1"></a>
+            <ul class="flex-col secondary-nav-1">
+              <li><img src="./images/icon-todo.svg" alt="" style="margin-right: 1rem;"><a href="#">Todo List</a></li>
+              <li><img src="./images/icon-calendar.svg" alt="" style="margin-right: 1rem;"><a href="#">Calendar</a></li>
+              <li><img src="./images/icon-reminders.svg" alt="" style="margin-right: 1rem;"><a href="#">Reminders</a>
+              </li>
+              <li><img src="./images/icon-planning.svg" alt="" style="margin-right: 1rem;"><a href="#">Planning</a></li>
+            </ul>
+          </li>
 
-          <ul class="flex-col secondary-nav-1 toggle-secondary-nav">
-            <li><img src="./images/icon-todo.svg" alt="" style="margin-right: 1rem;"><a href="#">Todo List</a></li>
-            <li><img src="./images/icon-calendar.svg" alt="" style="margin-right: 1rem;"><a href="#">Calendar</a></li>
-            <li><img src="./images/icon-reminders.svg" alt="" style="margin-right: 1rem;"><a href="#">Reminders</a></li>
-            <li><img src="./images/icon-planning.svg" alt="" style="margin-right: 1rem;"><a href="#">Planning</a></li>
-          </ul>
+          <li>
+            <a class="clr-gray company" href="#">Company <img src="./images/icon-arrow-down.svg" class="arrow-2"></a>
+            <ul class="flex-col secondary-nav-2">
+              <li><a href="#">History</a></li>
+              <li><a href="#">Our Team</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </li>
 
-        </li>
+          <li><a class="clr-gray" href="#">Careers</a></li>
+          <li><a class="clr-gray" href="#">About</a></li>
+        </div>
 
-        <li><a class="clr-gray company" href="#">Company <img src="./images/icon-arrow-down.svg" class="arrow-2"></a>
-
-          <ul class="flex-col secondary-nav-2 toggle-secondary-nav">
-            <li><a href="#">History</a></li>
-            <li><a href="#">Our Team</a></li>
-            <li><a href="#">Blog</a></li>
-          </ul>
-
-        </li>
-
-        <li><a class="clr-gray" href="#">Careers</a></li>
-        <li><a class="clr-gray" href="#">About</a></li>
-
-        <li><a class="clr-gray" href="#">Login</a></li>
-        <li><a class="clr-gray" href="#">Register</a></li>
+        <div class="get-into flex-col">
+          <li><a class="login clr-gray" href="#">Login</a></li>
+          <li><a class="register clr-gray active" href="#">Register</a></li>
+        </div>
 
       </ul>
     </nav>
@@ -65,7 +68,7 @@
 
         <a href="#" target="" class="btn-learn-more">Learn more</a>
       </section>
-      <section class="flex sponsors">
+      <section class="sponsors flex">
         <img src="./images/client-databiz.svg" alt="">
         <img src="./images/client-audiophile.svg" alt="">
         <img src="./images/client-meet.svg" alt="">

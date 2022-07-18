@@ -1,3 +1,8 @@
+/* -------------------------------*/
+/* ------ Custom Properties ------*/
+/* -------------------------------*/
+
+
 :root {
     --clr-white: 0 0% 98%;
     --clr-gray: 0 0% 41%;
@@ -14,7 +19,9 @@
     --gap-default: 1rem;
 }
 
-
+/* -----------------------*/
+/* ------ CSS Reset ------*/
+/* -----------------------*/
 
 
 *,
@@ -50,6 +57,16 @@ li {
     list-style: none;
 }
 
+/* ------------------------*/
+/* ------ Utilities ------*/
+/* -----------------------*/
+
+
+a:visited {
+    text-decoration-color: hsl(var(--clr-gray));
+    /* this is not working */
+}
+
 .clr-gray {
     color: hsl(var(--clr-gray));
 }
@@ -64,15 +81,9 @@ li {
     gap: var(--gap-default);
 }
 
-li a:hover,
-li a:focus {
-    color: hsl(var(--clr-black));
-    font-weight: 700;
-}
-
-/* -----------------*/
-/* ------ body------*/
-/* -----------------*/
+/* ------------------*/
+/* ------ body ------*/
+/* ------------------*/
 
 
 body {
@@ -80,6 +91,7 @@ body {
     font-size: var(--fs-500);
     line-height: 1.5;
     min-height: 100vh;
+    overflow-y: hidden;
 }
 
 .cover-page {
@@ -100,6 +112,7 @@ header {
 }
 
 header>img {
+
     margin-left: 1rem;
 }
 
@@ -134,9 +147,18 @@ header>img {
     transition: transform 1s ease-in-out;
 }
 
-/* ------ primary-nav-visible------*/
+/* ------ primary-nav-visible ------*/
 .primary-nav-visible {
     transform: translateX(0%);
+}
+
+li a {
+    color: hsl(var(--clr-gray));
+}
+
+li a:hover,
+li a:focus {
+    color: hsl(var(--clr-black));
 }
 
 .arrow {
@@ -144,37 +166,37 @@ header>img {
     margin-bottom: 0.125rem;
 }
 
-
-.primary-nav>li:nth-child(5),
-.primary-nav>li:nth-child(6) {
+.get-into>li:nth-child(1),
+.get-into>li:nth-child(2) {
     margin: .5rem auto;
     font-size: var(--fs-300);
 }
 
-.primary-nav>li:nth-child(5)>a,
-.primary-nav>li:nth-child(6)>a {
+.get-into>li:nth-child(1)>a,
+.get-into>li:nth-child(2)>a {
     --gap-default: 5rem;
     padding-inline: var(--gap-default);
     padding-block: calc(var(--gap-default)/6);
-
 }
 
-.primary-nav>li:nth-child(5)>a:hover,
-.primary-nav>li:nth-child(6)>a:hover,
-.primary-nav>li:nth-child(5)>a:focus,
-.primary-nav>li:nth-child(6)>a:focus {
+.active {
     border: 2px solid black;
     border-radius: 1em;
 }
 
 .secondary-nav-1,
 .secondary-nav-2 {
-    margin-top: var(--gap-default);
+    margin-top: 0;
+    height: 0;
+    overflow-y: hidden;
+    transition: height .5s, margin-top 0.75s;
 }
 
 /* ------ secondary-nav-expanded ------*/
-.toggle-secondary-nav {
-    display: none;
+.secondary-nav-expanded {
+    margin-top: var(--gap-default);
+    height: 100%;
+    transition: height .5s, margin-top 0.75s;
 }
 
 .hero-img {
@@ -240,11 +262,81 @@ header>img {
     width: 16%;
 }
 
-@media (min-width: 560px) {
-    .hero-img {
-        width: 50%;
-        background-image: url(./images/image-hero-desktop.png);
+@media (min-width: 1024px) {
+    .mobile-nav-toggle {
+        display: none;
     }
+
+    header {
+        margin-left: 1rem;
+        position: relative;
+    }
+
+    .primary-nav {
+        position: absolute;
+        inset: 0 0% 0% 13%;
+        padding-top: 0;
+        padding-left: 0;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: var(--gap-default);
+        background-color: hsl(var(--clr-white));
+        font-size: var(--fs-400);
+        transform: none;
+        transition: none;
+    }
+
+    /* ------ primary-nav-visible ------*/
+    .primary-nav-visible {
+        transform: none;
+    }
+
+    .list-items {
+        flex-direction: row;
+    }
+
+    .get-into {
+        flex-direction: row;
+    }
+
+    .get-into>li:nth-child(1)>a,
+    .get-into>li:nth-child(2)>a {
+        --gap-default: 2rem;
+
+    }
+
+    .secondary-nav-1,
+    .secondary-nav-2 {
+        position: absolute;
+        padding-inline-start: 0;
+    }
+
+    main {
+        display: grid;
+        grid-template-columns: 400px 400px;
+        grid-template-areas:
+            "text img";
+        align-items: end;
+        justify-content: space-around;
+        column-gap: 5rem;
+        outline: 2px solid green;
+    }
+}
+
+.hero-img {
+    grid-area: img;
+    width: 100%;
+    max-width: 800px;
+    aspect-ratio: 1/1.35;
+    margin: 0;
+    background-image: url(./images/image-hero-desktop.png);
+    outline: 3px solid purple;
+}
+
+.text-content {
+    grid-area: text;
+    outline: 3px solid purple;
 }
 
 .attribution {

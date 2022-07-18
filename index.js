@@ -21,7 +21,7 @@ const arrow2 = document.querySelector('.arrow-2');
 
 const toggleSecondaryNav = (anchorTag, nav, arrow) => {
     anchorTag.addEventListener('click', () => {
-        nav.classList.toggle('toggle-secondary-nav');
+        nav.classList.toggle('secondary-nav-expanded');
         arrow.getAttribute('src') === "./images/icon-arrow-down.svg" ?
             arrow.setAttribute('src', "./images/icon-arrow-up.svg") :
             arrow.setAttribute('src', "./images/icon-arrow-down.svg");
@@ -30,3 +30,14 @@ const toggleSecondaryNav = (anchorTag, nav, arrow) => {
 
 toggleSecondaryNav(linkFeatures, secondaryNav1, arrow1);
 toggleSecondaryNav(linkCompany, secondaryNav2, arrow2);
+
+//If "Login" is clicked,
+//it will get .active, and this clase will be disable on "Register".
+
+const login = document.querySelector('.login');
+const register = document.querySelector('.register');
+
+login.addEventListener('click', () => {
+    login.classList.toggle('active');
+    register.classList.toggle('active');
+});
